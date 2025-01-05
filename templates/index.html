@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button style="padding: 10px; display: block; margin-top: 50%; margin: auto;"
+        onclick="this.style.display='none',document.getElementById('img').style.display='block'">Start</button>
+
+    <div id="img" style="display: none;">
+        <img id="img1" src="/video_feed" style="
+    height: 50%;
+    width: 20% ;">
+    </div>
+
+    <audio id="myAudio" controls="false" autoplay="false" style="display: none;">
+        <source src="{{ url_for('audio') }}" type="audio/x-wav;codec=pcm">
+        Your browser does not support the audio element.
+    </audio>
+</body>
+
+</html>
+
+
+<script>
+    function playAudio() {
+        var audio = document.getElementById('myAudio');
+        audio.play();
+    }
+
+    // Event listener to trigger playAudio function on user interaction
+    document.addEventListener('click', function () {
+        playAudio();
+    });
+</script>
